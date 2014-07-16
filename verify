@@ -1,10 +1,10 @@
 #!/bin/bash
 #===============================================================================
 # See if this instance appears to have everything installed as expected.
-# This is for provision-java-dev-training-vm.
+# This is for provision-java-dev-training-vm-fedora.
 #
 # Version: 1.1.0 
-# Date: 03 May 2014
+# Date: 16 Jul 2014
 # Author: Dave Nicolette
 #===============================================================================
 
@@ -16,16 +16,12 @@ declare -i errors=0
 
 declare -a pkg
 pkg[${#pkg[@]}]='git'
-pkg[${#pkg[@]}]='build-essential'
-pkg[${#pkg[@]}]="linux-headers-$(uname -r)"
 pkg[${#pkg[@]}]='dkms'
-pkg[${#pkg[@]}]='python-software-properties'
-pkg[${#pkg[@]}]='sublime-text-installer'
-pkg[${#pkg[@]}]='openjdk-7-jdk'
+pkg[${#pkg[@]}]='java-1.7.0-openjdk'
 
 for name in "${pkg[@]}"
 do
-  if [[ -n "$(aptitude search ${name})" ]]; then 
+  if [[ -n "$(yum list ${name})" ]]; then 
       echo "package ${name} is installed"
   else
       echo "package ${name} was expected but is not installed - ERROR"
@@ -51,13 +47,6 @@ if [[ "$(rvm --version)" ]]; then
     echo "$(rvm current) is installed with rvm"
 else
     echo "rvm expected but is not installed - ERROR"
-    errors="${errors}+1"
-fi
-
-if [[ -e "$HOME/.argouml/argouml-0.34/argouml.jar" ]]; then
-    echo "ArgoUML 0.34 is installed"
-else
-    echo "ArgoUML expected but is not installed - ERROR"
     errors="${errors}+1"
 fi
 
