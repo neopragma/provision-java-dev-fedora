@@ -1,0 +1,14 @@
+#!/bin/bash
+#======================================================================================
+# Install OpenJDK 7 on Fedora
+#
+# Arguments:
+# (None)		
+#
+# Version: 1.0.0
+# Date: 03-July-2014
+# Author: Dave Nicolette
+#======================================================================================
+
+sudo yum -y install java-1.7.0-openjdk-devel
+

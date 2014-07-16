@@ -1,0 +1,62 @@
+#!/bin/bash
+#======================================================================================
+# Install Eclipse IDE, Kepler version, on Fedora.
+#
+# Arguments:
+# (None)		
+#
+# Version: 1.0.0
+# Date: 16-Jul-2014
+# Author: Dave Nicolette
+#======================================================================================
+
+echo
+echo '============================================================='
+echo 'Installing Eclipse IDE (Kepler JEE edition, m2e plugin)...'
+
+pushd ~/Downloads
+
+MACHINE_TYPE=`uname -m`
+if [ ${MACHINE_TYPE} == 'x86_64' ]; then
+    wget -O eclipse.tar.gz https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/M6/eclipse-jee-kepler-M6-linux-gtk-x86_64.tar.gz
+else
+    wget -O eclipse.tar.gz https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/M6/eclipse-jee-kepler-M6-linux-gtk.tar.gz
+fi
+
+tar -xzf eclipse.tar.gz
+sudo mv eclipse /opt
+
+popd
+
+pushd /opt
+
+sudo chown -R root:root eclipse
+sudo ln -s /opt/eclipse/eclipse /usr/bin/eclipse
+
+popd
+
+# Scripted install of m2e plugin is broken due to slf4j packaging issue. Must install through Eclipse IDE after config script completes.
+# Reactivate this code after they fix the bug. (Expected to be fixed with Eclipse Luna release August 2014.)
+
+# Attempted workaround
+sudo wget -O /opt/eclipse/plugins/slf4j-api-1.6.2.jar http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.6.2/slf4j-api-1.6.2.jar
+
+# sudo eclipse -nosplash -application org.eclipse.equinox.p2.director \
+#     -repository http://download.eclipse.org/technology/m2e/releases \
+#     -installIU org.eclipse.m2e.feature.feature.group,org.eclipse.m2e.logback.feature.feature.group \
+#    -destination /opt/eclipse \
+#    -roaming \
+#    -p2.os linux -p2.ws gtk -p2.arch x86_64 \
+#    -profile epp.package.jee
+
+sudo cp eclipse.desktop /usr/share/applications
+
+
+
+
+
+
+
+
+
+

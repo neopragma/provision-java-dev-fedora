@@ -1,0 +1,23 @@
+#!/bin/bash
+#======================================================================================
+# Install Sublime Text 3 on Fedora
+#
+# Arguments:
+# (None)		
+#
+# Version: 1.0.0
+# Date: 03-July-2014
+# Author: Dave Nicolette
+#======================================================================================
+
+curl -o ~/st3.tar.bz2 http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3059_x64.tar.bz2
+if tar -xf ~/st3.tar.bz2 --directory=$HOME; then
+  sudo mv ~/sublime_text_3/ /opt/
+  sudo ln -s /opt/sublime_text_3/sublime_text /bin/subl
+fi
+rm ~/st3.tar.bz2
+
+# Package Control - The Sublime Text Package Manager: https://sublime.wbond.net
+curl -o ~/Package\ Control.sublime-package https://sublime.wbond.net/Package%20Control.sublime-package
+sudo mv ~/Package\ Control.sublime-package /opt/sublime_text_3/Packages/
+

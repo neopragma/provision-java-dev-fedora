@@ -1,0 +1,25 @@
+#!/bin/bash
+#======================================================================================
+# Install RVM and Ruby on Fedora
+#
+# Arguments:
+# (None)		
+#
+# Version: 1.0.0
+# Date: 16-July-2014
+# Author: Dave Nicolette
+#======================================================================================
+
+echo
+echo '============================================================='
+echo 'Installing RVM, Ruby, and Bundler...'
+
+pushd "$HOME"
+\curl -sSL https://get.rvm.io | bash -s stable --ruby=2.1
+echo 'source "$HOME/.rvm/scripts/rvm"' >> .bashrc
+. .bashrc
+rvm --default use 2.1.2
+gem install bundler
+popd
+
+

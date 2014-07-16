@@ -1,0 +1,16 @@
+#!/bin/bash
+#======================================================================================
+# Install Microsoft TrueType core fonts on Fedora
+#
+# Arguments:
+# (None)		
+#
+# Version: 1.0.0
+# Date: 03-July-2014
+# Author: Dave Nicolette
+#======================================================================================
+
+sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+
+
+
