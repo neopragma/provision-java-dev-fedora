@@ -1,15 +1,15 @@
 #!/bin/bash
 #======================================================================================
-# Configure an instance of Fedora Linux to support Java development training courses.
+# Configure an instance of Fedora Linux to support Java development.
 #
 # Arguments:
 # (None)		
 #
 # Version: 1.0.0
-# Date: 03-July-2014
+# Date: 16 Jul 2014
 # Author: Dave Nicolette
 #======================================================================================
-export INSTALL_DIR="$HOME/provision-java-dev-training-vm-fedora"
+export INSTALL_DIR="$HOME/provision-java-dev-fedora"
 export COMMON_DIR="provision-fedora-common"
 
 mkdir -p bin

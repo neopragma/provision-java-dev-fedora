@@ -1,5 +1,5 @@
-# provision-java-dev-training-vm
-
+# provision-java-dev-fedora
+ 
 Provision an instance of Fedora Linux with software to support programming exercises for a training course in Test-Driven Development and Object-Oriented Design in Java. Once you have a provisioned VM, you can clone git repositories for one or more sample projects designed for use in training classes. These instructions are used by an instructor preparing a VM to be copied and distributed to participants in a training class.
 
 ## Steps
@@ -32,7 +32,7 @@ With git installed, you can load this provisioning project on the new instance:
 
 ```shell
 cd
-git clone https://github.com/neopragma/provision-java-dev-training-vm-fedora
+git clone https://github.com/neopragma/provision-java-dev-fedora
 ```
 
 ### Step 5 - Run the setup script
@@ -40,7 +40,7 @@ git clone https://github.com/neopragma/provision-java-dev-training-vm-fedora
 Run the setup script.
 
 ```shell
-cd ~/provision-java-dev-training-vm-fedora
+cd ~/provision-java-dev-fedora
 ./setup
 ```
 
